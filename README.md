@@ -57,7 +57,7 @@ $container->has('id');//returns bool
 //bind a service
 $container->bind($id, $callbackOrArray, $share = false);
 
-//share a service (same as above with third flag as true
+//share a service (same as above with third flag as true)
 $container->share($id, $callbackOrArray);
 
 //allows you to alter the instance before returning it from the container, you must return the instance
@@ -65,3 +65,9 @@ $container->extend($id, function($instance, $container){
     return $instance;
 });
 ```
+
+### Notes
+
+A fully tested version is on the way, and there has been a very primitive benchmark done between this as the league container (which is faster than illuminate).
+
+It looks positive. Around 20% faster and generally uses less memory (up to 70% less).
