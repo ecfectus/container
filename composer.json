@@ -1,0 +1,32 @@
+{
+    "name": "leemason/container",
+    "description": "Lean PSR11 compatible dependency injection container",
+    "license": "MIT",
+    "homepage": "https://github.com/leemason/container",
+    "authors": [
+        {
+            "name": "leemason",
+            "email": "contact@nohalfpixels.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "container-interop/container-interop": "^1.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "4.*"
+    },
+    "provide": {
+        "container-interop/container-interop-implementation": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "LeeMason\\Container\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LeeMason\\Container\\Test\\": "tests"
+        }
+    }
+}
