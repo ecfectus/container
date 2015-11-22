@@ -23,7 +23,11 @@ class ServiceProviderContainer extends Container implements ContainerInterface, 
 
     public function addServiceProvider($provider){
 
-        $instance = $this->getContainer()->get($provider);
+        if($this->getContainer()->has($provider)){
+            $instance = $this->getContainer()->get($provider);
+        }else{
+            $instance = new $provider();
+        }
 
         $this->providers[$provider] = $instance;
 

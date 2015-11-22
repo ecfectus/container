@@ -3,9 +3,9 @@
 namespace LeeMason\Container\ServiceProvider;
 
 
-use Interop\Container\ContainerInterface;
+use LeeMason\Container\ContainerAwareInterface;
 
-interface ServiceProviderInterface extends ContainerInterface
+interface ServiceProviderInterface extends ContainerAwareInterface
 {
     /**
      * Returns a boolean if checking whether this provider provides a specific

@@ -88,6 +88,10 @@ class Container implements ContainerInterface
             return true;
         }
 
+        if (array_key_exists($id, $this->sharedInstances)) {
+            return true;
+        }
+
         return $this->hasInDelegate($id);
     }
 
@@ -166,6 +170,14 @@ class Container implements ContainerInterface
      * @param callable $extender
      */
     public function extend($id, callable $extender){
+        if(!$this->has($id)){
+            throw new NotFoundException(
+                sprintf('Alias (%s) is not being managed by the container', $id)
+            );
+        }
+        if(!is_callable($extender)){
+            throw new \InvalidArgumentException('You must provide a callable to the extend method.');
+        }
         $this->extenders[$id][] = $extender;
     }
 
