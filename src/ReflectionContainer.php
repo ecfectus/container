@@ -63,9 +63,6 @@ class ReflectionContainer implements ContainerInterface, ContainerAwareInterface
                 continue;
             }
             $container = $this->getContainer();
-            if (is_null($container)) {
-                $container = $this;
-            }
             if (! is_null($container) && $container->has($arg)) {
                 $arg = $container->get($arg);
                 continue;
