@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: leemason
- * Date: 22/11/15
- * Time: 11:10
- */
-
 namespace LeeMason\Container;
 
 
@@ -13,17 +6,35 @@ use Interop\Container\ContainerInterface;
 
 class Container implements ContainerInterface
 {
+    /**
+     * @var array
+     */
     protected $definitions = [];
 
+    /**
+     * @var array
+     */
     protected $sharedDefinitions = [];
 
+    /**
+     * @var array
+     */
     protected $sharedInstances = [];
 
+    /**
+     * @var array
+     */
     protected $delegates = [];
 
+    /**
+     * @var array
+     */
     protected $extenders = [];
 
-
+    /**
+     * @param string $id
+     * @return bool|mixed|object
+     */
     public function get($id)
     {
         //if we have an instance return it
@@ -63,6 +74,10 @@ class Container implements ContainerInterface
         );
     }
 
+    /**
+     * @param string $id
+     * @return bool
+     */
     public function has($id)
     {
         if (array_key_exists($id, $this->definitions)) {
@@ -92,7 +107,6 @@ class Container implements ContainerInterface
         }
 
         $id = $this->normalizeString($id);
-        $concrete = $this->normalizeString($concrete);
 
         //if its an instance save is as shared regardless of variable
         if(is_object($concrete)){
@@ -101,6 +115,8 @@ class Container implements ContainerInterface
             $this->sharedInstances[$id] = $instance;
             return;
         }
+
+        $concrete = $this->normalizeString($concrete);
 
         //if its callable, or is array and first item is callable
         if(is_callable($concrete) || (is_array($concrete) && is_callable($concrete[0])))
@@ -130,15 +146,33 @@ class Container implements ContainerInterface
         $this->sharedInstances[$id] = $concrete;
     }
 
+    /**
+     * Simple semantic wrapper around bind to share an item
+     *
+     * @param $id
+     * @param null $concrete
+     */
     public function share($id, $concrete = null)
     {
         return $this->bind($id, $concrete, true);
     }
 
+    /**
+     * Allows registration of callbacks run before the instance is resolved from the container.
+     *
+     * Useful for things like setting setters etc on the resolved object.
+     *
+     * @param $id
+     * @param callable $extender
+     */
     public function extend($id, callable $extender){
         $this->extenders[$id][] = $extender;
     }
 
+    /**
+     * @param ContainerInterface $container
+     * @return $this
+     */
     public function delegate(ContainerInterface $container)
     {
         $this->delegates[] = $container;
@@ -148,6 +182,10 @@ class Container implements ContainerInterface
         return $this;
     }
 
+    /**
+     * @param $id
+     * @return bool
+     */
     private function hasInDelegate($id)
     {
         foreach ($this->delegates as $container) {
@@ -158,6 +196,10 @@ class Container implements ContainerInterface
         return false;
     }
 
+    /**
+     * @param $id
+     * @return bool
+     */
     protected function getFromDelegate($id)
     {
         foreach ($this->delegates as $container) {
@@ -169,6 +211,10 @@ class Container implements ContainerInterface
         return false;
     }
 
+    /**
+     * @param $definition
+     * @return bool|mixed|object
+     */
     private function makeFromDefinition($definition)
     {
 
@@ -209,11 +255,20 @@ class Container implements ContainerInterface
 
     }
 
+    /**
+     * @param $string
+     * @return string
+     */
     private function normalizeString($string)
     {
         return (is_string($string) && strpos($string, '\\') === 0) ? substr($string, 1) : $string;
     }
 
+    /**
+     * @param $id
+     * @param $instance
+     * @return mixed
+     */
     private function applyExtenders($id, $instance){
         if(isset($this->extenders[$id]) && !empty($this->extenders[$id])) {
             foreach($this->extenders[$id] as $extender) {

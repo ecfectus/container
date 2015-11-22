@@ -1,13 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: leemason
- * Date: 22/11/15
- * Time: 14:50
- */
-
 namespace LeeMason\Container;
-
 
 use Interop\Container\ContainerInterface;
 
@@ -15,6 +7,10 @@ class ReflectionContainer implements ContainerInterface, ContainerAwareInterface
 {
     use ContainerAwareTrait;
 
+    /**
+     * @param string $id
+     * @return object
+     */
     public function get($id)
     {
         if (!class_exists($id)) {
@@ -34,6 +30,10 @@ class ReflectionContainer implements ContainerInterface, ContainerAwareInterface
         );
     }
 
+    /**
+     * @param \ReflectionMethod $method
+     * @return array
+     */
     private function reflectArguments(\ReflectionMethod $method)
     {
         $arguments = array_map(function (\ReflectionParameter $param) use ($method) {
@@ -55,6 +55,10 @@ class ReflectionContainer implements ContainerInterface, ContainerAwareInterface
         return $this->resolveArguments($arguments);
     }
 
+    /**
+     * @param array $arguments
+     * @return array
+     */
     private function resolveArguments(array $arguments)
     {
         foreach ($arguments as &$arg) {
@@ -71,6 +75,10 @@ class ReflectionContainer implements ContainerInterface, ContainerAwareInterface
         return $arguments;
     }
 
+    /**
+     * @param string $id
+     * @return bool
+     */
     public function has($id)
     {
         return class_exists($id);
