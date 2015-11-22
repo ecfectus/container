@@ -67,6 +67,24 @@ $container->bind($id, $callbackOrArray, $share = false);
 //share a service (same as above with third flag as true)
 $container->share($id, $callbackOrArray);
 
+//$callbackOrArray can be any of the following:
+
+//classname
+$container->bind($id, \Some\Class::class);
+
+//instance
+$container->bind($id, new \Some\Class());
+
+//callable
+$container->bind($id, function($container){
+    return new \Some\Class();
+});
+
+//an array containing a callable and the required arguments, to save on using reflection (better performance)
+$container->bind($id, [function($arg, \Some\Class $instance){
+    return $instance->with($arg);
+}, 'argument value', \Some\Class::class]);
+
 //allows you to alter the instance before returning it from the container, you must return the instance
 $container->extend($id, function($instance, $container){
     return $instance;
