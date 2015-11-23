@@ -2,7 +2,6 @@
 
 namespace Conformity\Container\ServiceProvider;
 
-
 use Conformity\Container\ContainerAwareInterface;
 
 interface ServiceProviderInterface extends ContainerAwareInterface
@@ -23,5 +22,4 @@ interface ServiceProviderInterface extends ContainerAwareInterface
      * @return void
      */
     public function register();
-
 }

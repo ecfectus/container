@@ -95,7 +95,7 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
     {
         $container = new Container;
 
-        $container->extend('something', function(){});
+        $container->extend('something', function () {});
     }
 
     /**
@@ -119,7 +119,7 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
     {
         $container = new Container;
 
-        $container->bind('test', [function($arg){return $arg;}, 'argument1']);
+        $container->bind('test', [function ($arg) {return $arg;}, 'argument1']);
 
         $this->assertEquals('argument1', $container->get('test'));
     }
@@ -132,7 +132,7 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
         $container = new Container;
         $container->delegate(new ReflectionContainer());
 
-        $container->bind('test', [function(\stdClass $arg){return $arg;}, \stdClass::class]);
+        $container->bind('test', [function (\stdClass $arg) {return $arg;}, \stdClass::class]);
 
         $this->assertInstanceOf('stdClass', $container->get('test'));
     }

@@ -2,12 +2,10 @@
 
 namespace Conformity\Container;
 
-
 use Interop\Container\ContainerInterface;
 
 interface ContainerAwareInterface
 {
-
     /**
      * @param ContainerInterface $container
      * @return mixed
@@ -18,5 +16,4 @@ interface ContainerAwareInterface
      * @return mixed
      */
     public function getContainer();
-
 }

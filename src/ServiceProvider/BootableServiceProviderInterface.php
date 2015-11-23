@@ -2,7 +2,6 @@
 
 namespace Conformity\Container\ServiceProvider;
 
-
 interface BootableServiceProviderInterface extends ServiceProviderInterface
 {
     /**

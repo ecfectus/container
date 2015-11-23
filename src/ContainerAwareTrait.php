@@ -2,12 +2,10 @@
 
 namespace Conformity\Container;
 
-
 use Interop\Container\ContainerInterface;
 
 trait ContainerAwareTrait
 {
-
     /**
      * @var
      */
@@ -30,5 +28,4 @@ trait ContainerAwareTrait
     {
         return $this->container;
     }
-
 }

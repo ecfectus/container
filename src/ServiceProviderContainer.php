@@ -2,7 +2,6 @@
 
 namespace Conformity\Container;
 
-
 use Interop\Container\ContainerInterface;
 use Conformity\Container\ServiceProvider\BootableServiceProviderInterface;
 use Conformity\Container\ServiceProvider\ServiceProviderInterface;
@@ -15,11 +14,11 @@ class ServiceProviderContainer extends Container implements ContainerInterface, 
 
     protected $provides = [];
 
-    public function addServiceProvider($provider){
-
-        if($this->getContainer()->has($provider)){
+    public function addServiceProvider($provider)
+    {
+        if ($this->getContainer()->has($provider)) {
             $instance = $this->getContainer()->get($provider);
-        }else{
+        } else {
             $instance = new $provider();
         }
 
@@ -46,9 +45,9 @@ class ServiceProviderContainer extends Container implements ContainerInterface, 
         );
     }
 
-    public function get($id){
-
-        if(!$this->has($id)){
+    public function get($id)
+    {
+        if (!$this->has($id)) {
             throw new NotFoundException(
                 sprintf('Alias (%s) is not an existing class and therefore cannot be resolved', $id)
             );
@@ -62,11 +61,10 @@ class ServiceProviderContainer extends Container implements ContainerInterface, 
 
         //should be registered so lets go back to the main container and fetch it
         return $this->getContainer()->get($id);
-
     }
 
-    public function has($id){
+    public function has($id)
+    {
         return array_key_exists($id, $this->provides);
     }
-
 }

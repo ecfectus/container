@@ -1,7 +1,6 @@
 <?php
 namespace Conformity\Container;
 
-
 use Interop\Container\ContainerInterface;
 
 class Container implements ContainerInterface
@@ -113,7 +112,7 @@ class Container implements ContainerInterface
         $id = $this->normalizeString($id);
 
         //if its an instance save is as shared regardless of variable
-        if(is_object($concrete)){
+        if (is_object($concrete)) {
             //apply any extenders - may not be that useful with an instance but hey ho.
             $instance = $this->applyExtenders($id, $concrete);
             $this->sharedInstances[$id] = $instance;
@@ -123,10 +122,8 @@ class Container implements ContainerInterface
         $concrete = $this->normalizeString($concrete);
 
         //if its callable, or is array and first item is callable
-        if(is_callable($concrete) || (is_array($concrete) && is_callable($concrete[0])))
-        {
-            if(false === $shared)
-            {
+        if (is_callable($concrete) || (is_array($concrete) && is_callable($concrete[0]))) {
+            if (false === $shared) {
                 $this->definitions[$id] = (array) $concrete;
                 return;
             }
@@ -135,10 +132,8 @@ class Container implements ContainerInterface
         }
 
         //if its a class string and it exists, or its an array and the first item is a class string
-        if(is_string($concrete) && class_exists($concrete) || (is_array($concrete) && class_exists($concrete[0])))
-        {
-            if(false === $shared)
-            {
+        if (is_string($concrete) && class_exists($concrete) || (is_array($concrete) && class_exists($concrete[0]))) {
+            if (false === $shared) {
                 $this->definitions[$id] = (array) $concrete;
                 return;
             }
@@ -169,13 +164,14 @@ class Container implements ContainerInterface
      * @param $id
      * @param callable $extender
      */
-    public function extend($id, callable $extender){
-        if(!$this->has($id)){
+    public function extend($id, callable $extender)
+    {
+        if (!$this->has($id)) {
             throw new NotFoundException(
                 sprintf('Alias (%s) is not being managed by the container', $id)
             );
         }
-        if(!is_callable($extender)){
+        if (!is_callable($extender)) {
             throw new \InvalidArgumentException('You must provide a callable to the extend method.');
         }
         $this->extenders[$id][] = $extender;
@@ -229,15 +225,14 @@ class Container implements ContainerInterface
      */
     private function makeFromDefinition($definition)
     {
-
         $target = array_shift($definition);
 
         //if there are no arguments, just call/make it with the container as an argument and return
-        if(empty($definition)){
-            if(is_callable($target)){
+        if (empty($definition)) {
+            if (is_callable($target)) {
                 return $target($this);
             }
-            if(class_exists($target)){
+            if (class_exists($target)) {
                 $instance = new $target;
                 return $instance;
             }
@@ -245,18 +240,18 @@ class Container implements ContainerInterface
         }
 
         //build arguments array from container - if a key exists it will be used instead
-        foreach($definition as $key => $value){
-            if($this->has($value)){
+        foreach ($definition as $key => $value) {
+            if ($this->has($value)) {
                 $definition[$key] = $this->get($value);
                 continue;
             }
         }
 
-        if(is_callable($target)){
+        if (is_callable($target)) {
             return call_user_func_array($target, $definition);
         }
 
-        if(class_exists($target)){
+        if (class_exists($target)) {
             //for 5.6 we could use argument unpacking, we will see: $instance = new $target(...$definition);
             $reflectionClass = new \ReflectionClass($target);
             $instance = $reflectionClass->newInstanceArgs($definition);
@@ -264,7 +259,6 @@ class Container implements ContainerInterface
         }
 
         return false;
-
     }
 
     /**
@@ -281,9 +275,10 @@ class Container implements ContainerInterface
      * @param $instance
      * @return mixed
      */
-    private function applyExtenders($id, $instance){
-        if(isset($this->extenders[$id]) && !empty($this->extenders[$id])) {
-            foreach($this->extenders[$id] as $extender) {
+    private function applyExtenders($id, $instance)
+    {
+        if (isset($this->extenders[$id]) && !empty($this->extenders[$id])) {
+            foreach ($this->extenders[$id] as $extender) {
                 $instance = $extender($instance, $this);
             }
         }

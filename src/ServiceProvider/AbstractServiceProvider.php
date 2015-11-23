@@ -2,7 +2,6 @@
 
 namespace Conformity\Container\ServiceProvider;
 
-
 use Conformity\Container\ContainerAwareTrait;
 
 abstract class AbstractServiceProvider implements ServiceProviderInterface

@@ -62,7 +62,6 @@ class ReflectionContainer implements ContainerInterface, ContainerAwareInterface
     private function resolveArguments(array $arguments)
     {
         foreach ($arguments as &$arg) {
-
             if (! is_string($arg)) {
                 continue;
             }
@@ -83,6 +82,4 @@ class ReflectionContainer implements ContainerInterface, ContainerAwareInterface
     {
         return class_exists($id);
     }
-
-
 }
