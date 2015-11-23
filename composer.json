@@ -1,8 +1,8 @@
 {
-    "name": "leemason/container",
+    "name": "conformity/container",
     "description": "Lean PSR11 compatible dependency injection container",
     "license": "MIT",
-    "homepage": "https://github.com/leemason/container",
+    "homepage": "https://github.com/conformity/container",
     "authors": [
         {
             "name": "leemason",
@@ -21,12 +21,12 @@
     },
     "autoload": {
         "psr-4": {
-            "LeeMason\\Container\\": "src"
+            "Conformity\\Container\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "LeeMason\\Container\\Test\\": "tests"
+            "Conformity\\Container\\Test\\": "tests"
         }
     }
 }

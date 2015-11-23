@@ -1,15 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: leemason
- * Date: 22/11/15
- * Time: 21:32
- */
 
-namespace LeeMason\Container\Test;
+namespace Conformity\Container\Test;
 
 
-use LeeMason\Container\ServiceProvider\AbstractServiceProvider;
+use Conformity\Container\ServiceProvider\AbstractServiceProvider;
 
 class TestServiceProvider extends AbstractServiceProvider
 {

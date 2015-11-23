@@ -1,10 +1,10 @@
 <?php
 
-namespace LeeMason\Container\Test;
+namespace Conformity\Container\Test;
 
-use LeeMason\Container\Container;
-use LeeMason\Container\ReflectionContainer;
-use LeeMason\Container\ServiceProviderContainer;
+use Conformity\Container\Container;
+use Conformity\Container\ReflectionContainer;
+use Conformity\Container\ServiceProviderContainer;
 
 class ContainerTest extends \PHPUnit_Framework_TestCase
 {
@@ -89,7 +89,7 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Asserts that an exception is thrown when the extend method cannot find a definition to extend.
-     * @expectedException \LeeMason\Container\NotFoundException
+     * @expectedException \Conformity\Container\NotFoundException
      */
     public function testExtendThrowsWhenCannotFindDefinition()
     {

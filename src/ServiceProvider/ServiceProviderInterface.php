@@ -1,9 +1,9 @@
 <?php
 
-namespace LeeMason\Container\ServiceProvider;
+namespace Conformity\Container\ServiceProvider;
 
 
-use LeeMason\Container\ContainerAwareInterface;
+use Conformity\Container\ContainerAwareInterface;
 
 interface ServiceProviderInterface extends ContainerAwareInterface
 {

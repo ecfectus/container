@@ -1,15 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: leemason
- * Date: 22/11/15
- * Time: 20:24
- */
 
-namespace LeeMason\Container\ServiceProvider;
+namespace Conformity\Container\ServiceProvider;
 
 
-use LeeMason\Container\ContainerAwareTrait;
+use Conformity\Container\ContainerAwareTrait;
 
 abstract class AbstractServiceProvider implements ServiceProviderInterface
 {

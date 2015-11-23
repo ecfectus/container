@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: leemason
- * Date: 22/11/15
- * Time: 20:23
- */
 
-namespace LeeMason\Container\ServiceProvider;
+namespace Conformity\Container\ServiceProvider;
 
 
 interface BootableServiceProviderInterface extends ServiceProviderInterface

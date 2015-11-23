@@ -1,17 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: leemason
- * Date: 22/11/15
- * Time: 19:11
- */
 
-namespace LeeMason\Container;
+namespace Conformity\Container;
 
 
 use Interop\Container\ContainerInterface;
-use LeeMason\Container\ServiceProvider\BootableServiceProviderInterface;
-use LeeMason\Container\ServiceProvider\ServiceProviderInterface;
+use Conformity\Container\ServiceProvider\BootableServiceProviderInterface;
+use Conformity\Container\ServiceProvider\ServiceProviderInterface;
 
 class ServiceProviderContainer extends Container implements ContainerInterface, ContainerAwareInterface
 {
@@ -48,7 +42,7 @@ class ServiceProviderContainer extends Container implements ContainerInterface, 
 
         throw new \InvalidArgumentException(
             'A service provider must be a fully qualified class name or instance ' .
-            'of (\LeeMason\Container\ServiceProvider\ServiceProviderInterface)'
+            'of (\Conformity\Container\ServiceProvider\ServiceProviderInterface)'
         );
     }
 

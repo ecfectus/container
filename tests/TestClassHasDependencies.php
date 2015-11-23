@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: leemason
- * Date: 22/11/15
- * Time: 22:27
- */
 
-namespace LeeMason\Container\Test;
+namespace Conformity\Container\Test;
 
 
 class TestClassHasDependencies

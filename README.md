@@ -42,16 +42,16 @@ $container->bind(SomeClassInterface::class, [function(A $a, B $b){
 The container conforms the current PSR11 container spec (in draft), so basic usage is as follows:
 
 ```php
-$container = new LeeMason\Container\Container();
+$container = new Conformity\Container\Container();
 //optionally include a reflection based delegate (only used if no registration exists, this is required if you plan on using the service provider container as well)
-$container->delegate(new LeeMason\Container\ReflectionContainer());
+$container->delegate(new Conformity\Container\ReflectionContainer());
 
 //optionally include the service provider container
 $serviceProviderContainer = new ServiceProviderContainer();
 $container->delegate($serviceProviderContainer);
 
 //if registered add service providers
-$serviceProviderContainer->addServiceProvider(\Name\Of\ServiceProvider::class);//must extend the \LeeMason\Container\ServiceProvider\AbstractServiceProvider class
+$serviceProviderContainer->addServiceProvider(\Name\Of\ServiceProvider::class);//must extend the \Conformity\Container\ServiceProvider\AbstractServiceProvider class
 
 //psr interface methods
 
@@ -94,7 +94,7 @@ If using services providers they simply need to provide an array of the services
 
 ```php
 <?php
-use LeeMason\Container\ServiceProvider\AbstractServiceProvider;
+use Conformity\Container\ServiceProvider\AbstractServiceProvider;
 
 class SomeServiceProvider extends AbstractServiceProvider
 {
@@ -117,6 +117,6 @@ This function also has access to the container.
 
 ### Notes
 
-A fully tested version is on the way, and there has been a very primitive benchmark done between this as the league container (which is faster than illuminate).
+There has been a very primitive benchmark done between this as the league container (which is faster than illuminate).
 
 It looks positive. Around 20% faster and generally uses less memory (up to 70% less).

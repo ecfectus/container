@@ -1,5 +1,5 @@
 <?php
-namespace LeeMason\Container;
+namespace Conformity\Container;
 
 
 use Interop\Container\ContainerInterface;
