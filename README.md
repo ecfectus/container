@@ -106,6 +106,9 @@ class SomeServiceProvider extends AbstractServiceProvider
     ];
 
     public function register(){
+            /**
+             * Or use the shortcuts $this->bind() and $this->share()
+             */
         $this->getContainer()->bind(someClass::class, function(){
             return new someClass();
         });
@@ -114,7 +117,8 @@ class SomeServiceProvider extends AbstractServiceProvider
 }
 ```
 
-Service providers can also implement the ```BootableServiceProviderInterface``` and provide a ```::boot()``` method which will get called when the service provider is added via the ```addServiceProvider``` function.
+Service providers can also implement the ```BootableServiceProviderInterface``` and provide a ```::boot()``` method which will get called when the service provider
+is added via the ```addServiceProvider``` function if the container has already been booted, or when the ```$container->bootServiceProviders();``` method is called.
 This function also has access to the container.
 
 ### Notes
@@ -122,3 +126,6 @@ This function also has access to the container.
 There has been a very primitive benchmark done between this as the league container (which is faster than illuminate).
 
 It looks positive. Around 20% faster and generally uses less memory (up to 70% less).
+
+The reflection container give you complete freedom, but this comes at a cost (can be 2+ times slower), where possible provide the dependency list and register all
+objects in the container to ensure best performance.

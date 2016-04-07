@@ -21,4 +21,12 @@ abstract class AbstractServiceProvider implements ServiceProviderInterface
         }
         return $this->provides;
     }
+
+    protected function bind(...$arguments){
+        return $this->getContainer()->bind(...$arguments);
+    }
+
+    protected function share(...$arguments){
+        return $this->getContainer()->share(...$arguments);
+    }
 }

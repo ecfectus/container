@@ -10,6 +10,8 @@ class ServiceProviderContainer extends Container implements ContainerInterface, 
 {
     use ContainerAwareTrait;
 
+    protected $booted = false;
+
     protected $providers = [];
 
     protected $provides = [];
@@ -28,7 +30,7 @@ class ServiceProviderContainer extends Container implements ContainerInterface, 
             $instance->setContainer($this->getContainer());
         }
 
-        if ($instance instanceof BootableServiceProviderInterface) {
+        if ($this->booted && $instance instanceof BootableServiceProviderInterface) {
             $instance->boot();
         }
 
@@ -41,8 +43,19 @@ class ServiceProviderContainer extends Container implements ContainerInterface, 
 
         throw new \InvalidArgumentException(
             'A service provider must be a fully qualified class name or instance ' .
-            'of (\Ecfectus\Container\ServiceProvider\ServiceProviderInterface)'
+            'of ('.ServiceProviderInterface::class.')'
         );
+    }
+
+    public function bootServiceProviders(){
+
+        foreach($this->providers as $provider){
+            if ($provider instanceof BootableServiceProviderInterface) {
+                $provider->boot();
+            }
+        }
+
+        $this->booted = true;
     }
 
     public function get($id)
