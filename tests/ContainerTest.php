@@ -175,13 +175,32 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
     {
         $container = new Container();
 
-        $container->delegate(new ReflectionContainer());
+        //$container->delegate(new ReflectionContainer());
 
         $serviceProvider = new ServiceProviderContainer();
 
         $container->delegate($serviceProvider);
 
         $serviceProvider->addServiceProvider(TestServiceProvider::class);
+
+        $this->assertTrue($container->has(\stdClass::class));
+
+        $this->assertInstanceOf('stdClass', $container->get(\stdClass::class));
+    }
+
+    /**
+     * Assert delegation works for method calls
+     */
+    public function testContainerDelegationResultsInMethodCallsBeingPassedDown()
+    {
+        $container = new Container();
+
+        $serviceProvider = new ServiceProviderContainer();
+
+        $container->delegate($serviceProvider);
+
+        //this should fall through to the service provider container
+        $container->addServiceProvider(TestServiceProvider::class);
 
         $this->assertTrue($container->has(\stdClass::class));
 

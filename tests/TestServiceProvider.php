@@ -12,7 +12,7 @@ class TestServiceProvider extends AbstractServiceProvider
 
     public function register()
     {
-        $this->getContainer()->bind('stdClass', function () {
+        $this->getContainer()->bind(\stdClass::class, function () {
             return new \stdClass();
         });
     }

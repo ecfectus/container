@@ -37,6 +37,8 @@ $container->bind(SomeClassInterface::class, [function(A $a, B $b){
 }, A::class, B::class]);
 ```
 
+We have found even testing with as little as 5 dependant classes this method of providing the dependency list to be TWICE as fast and has no reflection needs.
+
 ## Usage
 
 The container conforms the current PSR11 container spec (in draft), so basic usage is as follows:
@@ -50,7 +52,7 @@ $container->delegate(new Ecfectus\Container\ReflectionContainer());
 $serviceProviderContainer = new ServiceProviderContainer();
 $container->delegate($serviceProviderContainer);
 
-//if registered add service providers
+//if registered add service providers either on the delegated container OR on the main container via the use of magic methods
 $serviceProviderContainer->addServiceProvider(\Name\Of\ServiceProvider::class);//must extend the \Ecfectus\Container\ServiceProvider\AbstractServiceProvider class
 
 //psr interface methods
@@ -59,7 +61,7 @@ $container->get('id');//returns the instance, or throws a NotFoundException
 
 $container->has('id');//returns bool
 
-//methods sepcific to this container
+//methods specific to this container
 
 //bind a service
 $container->bind($id, $callbackOrArray, $share = false);

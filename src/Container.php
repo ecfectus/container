@@ -112,7 +112,7 @@ class Container implements ContainerInterface
         $id = $this->normalizeString($id);
 
         //if its an instance save is as shared regardless of variable
-        if (is_object($concrete)) {
+        if (is_object($concrete) && !$concrete instanceof \Closure) {
             //apply any extenders - may not be that useful with an instance but hey ho.
             $instance = $this->applyExtenders($id, $concrete);
             $this->sharedInstances[$id] = $instance;
@@ -248,14 +248,12 @@ class Container implements ContainerInterface
         }
 
         if (is_callable($target)) {
-            return call_user_func_array($target, $definition);
+            return $target(...$definition);
         }
 
         if (class_exists($target)) {
-            //for 5.6 we could use argument unpacking, we will see: $instance = new $target(...$definition);
-            $reflectionClass = new \ReflectionClass($target);
-            $instance = $reflectionClass->newInstanceArgs($definition);
-            return $instance;
+
+            return new $target(...$definition);
         }
 
         return false;
@@ -283,5 +281,13 @@ class Container implements ContainerInterface
             }
         }
         return $instance;
+    }
+
+    public function __call($method, $arguments){
+        foreach ($this->delegates as $container) {
+            if (is_callable([$container, $method])) {
+                return $container->$method(...$arguments);
+            }
+        }
     }
 }
