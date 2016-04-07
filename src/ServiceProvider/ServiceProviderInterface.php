@@ -1,8 +1,8 @@
 <?php
 
-namespace Conformity\Container\ServiceProvider;
+namespace Ecfectus\Container\ServiceProvider;
 
-use Conformity\Container\ContainerAwareInterface;
+use Ecfectus\Container\ContainerAwareInterface;
 
 interface ServiceProviderInterface extends ContainerAwareInterface
 {

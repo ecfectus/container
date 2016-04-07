@@ -1,8 +1,8 @@
 <?php
 
-namespace Conformity\Container\Test;
+namespace Ecfectus\Container\Test;
 
-use Conformity\Container\ServiceProvider\AbstractServiceProvider;
+use Ecfectus\Container\ServiceProvider\AbstractServiceProvider;
 
 class TestServiceProvider extends AbstractServiceProvider
 {

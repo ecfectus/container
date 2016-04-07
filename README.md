@@ -42,16 +42,16 @@ $container->bind(SomeClassInterface::class, [function(A $a, B $b){
 The container conforms the current PSR11 container spec (in draft), so basic usage is as follows:
 
 ```php
-$container = new Conformity\Container\Container();
+$container = new Ecfectus\Container\Container();
 //optionally include a reflection based delegate (only used if no registration exists, this is required if you plan on using the service provider container as well)
-$container->delegate(new Conformity\Container\ReflectionContainer());
+$container->delegate(new Ecfectus\Container\ReflectionContainer());
 
 //optionally include the service provider container
 $serviceProviderContainer = new ServiceProviderContainer();
 $container->delegate($serviceProviderContainer);
 
 //if registered add service providers
-$serviceProviderContainer->addServiceProvider(\Name\Of\ServiceProvider::class);//must extend the \Conformity\Container\ServiceProvider\AbstractServiceProvider class
+$serviceProviderContainer->addServiceProvider(\Name\Of\ServiceProvider::class);//must extend the \Ecfectus\Container\ServiceProvider\AbstractServiceProvider class
 
 //psr interface methods
 
@@ -94,7 +94,7 @@ If using services providers they simply need to provide an array of the services
 
 ```php
 <?php
-use Conformity\Container\ServiceProvider\AbstractServiceProvider;
+use Ecfectus\Container\ServiceProvider\AbstractServiceProvider;
 
 class SomeServiceProvider extends AbstractServiceProvider
 {

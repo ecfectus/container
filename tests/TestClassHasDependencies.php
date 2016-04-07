@@ -1,6 +1,6 @@
 <?php
 
-namespace Conformity\Container\Test;
+namespace Ecfectus\Container\Test;
 
 class TestClassHasDependencies
 {

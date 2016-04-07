@@ -1,6 +1,6 @@
 <?php
 
-namespace Conformity\Container;
+namespace Ecfectus\Container;
 
 use Interop\Container\ContainerInterface;
 

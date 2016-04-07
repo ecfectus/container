@@ -1,8 +1,8 @@
 <?php
 
-namespace Conformity\Container\ServiceProvider;
+namespace Ecfectus\Container\ServiceProvider;
 
-use Conformity\Container\ContainerAwareTrait;
+use Ecfectus\Container\ContainerAwareTrait;
 
 abstract class AbstractServiceProvider implements ServiceProviderInterface
 {

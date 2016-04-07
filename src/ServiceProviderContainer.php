@@ -1,10 +1,10 @@
 <?php
 
-namespace Conformity\Container;
+namespace Ecfectus\Container;
 
 use Interop\Container\ContainerInterface;
-use Conformity\Container\ServiceProvider\BootableServiceProviderInterface;
-use Conformity\Container\ServiceProvider\ServiceProviderInterface;
+use Ecfectus\Container\ServiceProvider\BootableServiceProviderInterface;
+use Ecfectus\Container\ServiceProvider\ServiceProviderInterface;
 
 class ServiceProviderContainer extends Container implements ContainerInterface, ContainerAwareInterface
 {
@@ -41,7 +41,7 @@ class ServiceProviderContainer extends Container implements ContainerInterface, 
 
         throw new \InvalidArgumentException(
             'A service provider must be a fully qualified class name or instance ' .
-            'of (\Conformity\Container\ServiceProvider\ServiceProviderInterface)'
+            'of (\Ecfectus\Container\ServiceProvider\ServiceProviderInterface)'
         );
     }
 

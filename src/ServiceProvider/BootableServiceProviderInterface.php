@@ -1,6 +1,6 @@
 <?php
 
-namespace Conformity\Container\ServiceProvider;
+namespace Ecfectus\Container\ServiceProvider;
 
 interface BootableServiceProviderInterface extends ServiceProviderInterface
 {

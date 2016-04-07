@@ -1,8 +1,8 @@
 {
-    "name": "conformity/container",
+    "name": "ecfectus/container",
     "description": "Lean PSR11 compatible dependency injection container",
     "license": "MIT",
-    "homepage": "https://github.com/conformity/container",
+    "homepage": "https://github.com/ecfectus/container",
     "authors": [
         {
             "name": "leemason",
@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Conformity\\Container\\": "src"
+            "Ecfectus\\Container\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Conformity\\Container\\Test\\": "tests"
+            "Ecfectus\\Container\\Test\\": "tests"
         }
     }
 }

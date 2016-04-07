@@ -1,6 +1,6 @@
 <?php
 
-namespace Conformity\Container;
+namespace Ecfectus\Container;
 
 class NotFoundException extends \InvalidArgumentException implements \Interop\Container\Exception\NotFoundException
 {
