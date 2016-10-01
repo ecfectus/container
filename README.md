@@ -1,4 +1,6 @@
-# container
+# Container
+
+[![Build Status](https://travis-ci.org/ecfectus/container.svg?branch=master)](https://travis-ci.org/ecfectus/container)
 
 Lean PSR11 (draft) compatible dependency injection container.
 
