@@ -2,7 +2,6 @@
 
 namespace Ecfectus\Container;
 
-use Interop\Container\ContainerInterface;
 use Ecfectus\Container\ServiceProvider\BootableServiceProviderInterface;
 use Ecfectus\Container\ServiceProvider\ServiceProviderInterface;
 
@@ -58,12 +57,10 @@ class ServiceProviderContainer extends Container implements ContainerInterface, 
         $this->booted = true;
     }
 
-    public function get($id)
+    public function get(string $id = '')
     {
         if (!$this->has($id)) {
-            throw new NotFoundException(
-                sprintf('Alias (%s) is not an existing class and therefore cannot be resolved', $id)
-            );
+            throw new NotFoundException('Alias (' . $id . ') is not an existing class and therefore cannot be resolved');
         }
 
         $provider = $this->provides[$id];
@@ -76,7 +73,7 @@ class ServiceProviderContainer extends Container implements ContainerInterface, 
         return $this->getContainer()->get($id);
     }
 
-    public function has($id)
+    public function has(string $id = '') : bool
     {
         return array_key_exists($id, $this->provides);
     }

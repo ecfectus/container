@@ -1,7 +1,6 @@
 <?php
 namespace Ecfectus\Container;
 
-use Interop\Container\ContainerInterface;
 
 class ReflectionContainer implements ContainerInterface, ContainerAwareInterface
 {
@@ -11,12 +10,10 @@ class ReflectionContainer implements ContainerInterface, ContainerAwareInterface
      * @param string $id
      * @return object
      */
-    public function get($id)
+    public function get(string $id = '')
     {
         if (!class_exists($id)) {
-            throw new NotFoundException(
-                sprintf('Alias (%s) is not an existing class and therefore cannot be resolved', $id)
-            );
+            throw new NotFoundException('Alias (' . $id . ') is not an existing class and therefore cannot be resolved');
         }
 
         $reflector = new \ReflectionClass($id);
@@ -45,11 +42,7 @@ class ReflectionContainer implements ContainerInterface, ContainerAwareInterface
             if ($param->isDefaultValueAvailable()) {
                 return $param->getDefaultValue();
             }
-            throw new NotFoundException(sprintf(
-                'Unable to resolve a value for parameter (%s) in the function/method (%s)',
-                $name,
-                $method->getName()
-            ));
+            throw new NotFoundException('Unable to resolve a value for parameter (' . $name . ') in the function/method (' . $method->getName() . ')');
         }, $method->getParameters());
 
         return $this->resolveArguments($arguments);
@@ -78,7 +71,7 @@ class ReflectionContainer implements ContainerInterface, ContainerAwareInterface
      * @param string $id
      * @return bool
      */
-    public function has($id)
+    public function has(string $id = '') : bool
     {
         return class_exists($id);
     }

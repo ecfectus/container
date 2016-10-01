@@ -1,8 +1,6 @@
 <?php
 namespace Ecfectus\Container;
 
-use Interop\Container\ContainerInterface;
-
 class Container implements ContainerInterface
 {
     /**
@@ -34,7 +32,7 @@ class Container implements ContainerInterface
      * @param string $id
      * @return bool|mixed|object
      */
-    public function get($id)
+    public function get(string $id = '')
     {
         //if we have an instance return it
         if (array_key_exists($id, $this->sharedInstances)) {
@@ -68,16 +66,14 @@ class Container implements ContainerInterface
         }
 
         //not found
-        throw new NotFoundException(
-            sprintf('Alias (%s) is not being managed by the container', $id)
-        );
+        throw new NotFoundException('Alias (' . $id . ') is not being managed by the container');
     }
 
     /**
      * @param string $id
      * @return bool
      */
-    public function has($id)
+    public function has(string $id = '') : bool
     {
         if (array_key_exists($id, $this->definitions)) {
             return true;
@@ -167,13 +163,9 @@ class Container implements ContainerInterface
     public function extend($id, callable $extender)
     {
         if (!$this->has($id)) {
-            throw new NotFoundException(
-                sprintf('Alias (%s) is not being managed by the container', $id)
-            );
+            throw new NotFoundException('Alias (' . $id . ') is not being managed by the container');
         }
-        if (!is_callable($extender)) {
-            throw new \InvalidArgumentException('You must provide a callable to the extend method.');
-        }
+
         $this->extenders[$id][] = $extender;
     }
 

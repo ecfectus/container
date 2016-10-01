@@ -2,8 +2,6 @@
 
 namespace Ecfectus\Container;
 
-use Interop\Container\ContainerInterface;
-
 interface ContainerAwareInterface
 {
     /**

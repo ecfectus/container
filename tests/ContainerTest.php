@@ -5,13 +5,14 @@ namespace Ecfectus\Container\Test;
 use Ecfectus\Container\Container;
 use Ecfectus\Container\ReflectionContainer;
 use Ecfectus\Container\ServiceProviderContainer;
+use PHPUnit\Framework\TestCase;
 
-class ContainerTest extends \PHPUnit_Framework_TestCase
+class ContainerTest extends TestCase
 {
     /**
-     * Asserts that the container can set and get a simple closure with args.
+     * Asserts that the container can set and get a simple closure with args and strings.
      */
-    public function testSetsAndGetsSimplePrototypedClosure()
+    public function testSetsAndGetsSimplePrototypedClosureOrStrings()
     {
         $container = new Container();
 
@@ -22,6 +23,10 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($container->has('test'));
 
         $this->assertEquals($container->get('test'), 'hello world');
+
+        $container->bind('test', 'value', true);
+
+        $this->assertEquals($container->get('test'), 'value');
     }
 
     /**
@@ -33,11 +38,25 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
 
         $class = new \stdClass;
 
-        $container->bind('test', $class);
+        $container->bind('test', $class, true);
 
         $this->assertTrue($container->has('test'));
 
         $this->assertSame($container->get('test'), $class);
+    }
+
+    /**
+     * Asserts that the container sets and gets an instance provided as string.
+     */
+    public function testSetsAndGetStringAsShared()
+    {
+        $container = new Container;
+
+        $container->bind(stdClass::class, stdClass::class, true);
+
+        $this->assertTrue($container->has(stdClass::class));
+
+        $this->assertSame($container->get(stdClass::class), stdClass::class);
     }
 
     /**
@@ -96,6 +115,24 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
         $container = new Container;
 
         $container->extend('something', function () {});
+    }
+
+    /**
+     * Ensure extenders are added to the container.
+     */
+    public function testExtendsAddition()
+    {
+        $container = new Container;
+
+        $container->bind('stdClass', function(){
+            return new \stdClass();
+        });
+
+        $func = function () {};
+
+        $container->extend('stdClass', $func);
+
+        $this->assertAttributeSame(['stdClass' => [$func]], 'extenders', $container);
     }
 
     /**

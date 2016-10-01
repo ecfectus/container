@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1475354612">
+  <project timestamp="1475354612">
+    <package name="Ecfectus\Container">
+      <file name="/Users/leemason/ecfectus/container/src/Container.php">
+        <class name="Container" namespace="Ecfectus\Container">
+          <metrics complexity="51" methods="12" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="88" coveredstatements="78" elements="100" coveredelements="85"/>
+        </class>
+        <line num="35" type="method" name="get" visibility="public" complexity="5" crap="5" count="12"/>
+        <line num="38" type="stmt" count="12"/>
+        <line num="39" type="stmt" count="4"/>
+        <line num="43" type="stmt" count="10"/>
+        <line num="44" type="stmt" count="1"/>
+        <line num="47" type="stmt" count="1"/>
+        <line num="49" type="stmt" count="1"/>
+        <line num="50" type="stmt" count="1"/>
+        <line num="54" type="stmt" count="9"/>
+        <line num="55" type="stmt" count="6"/>
+        <line num="57" type="stmt" count="6"/>
+        <line num="58" type="stmt" count="6"/>
+        <line num="62" type="stmt" count="6"/>
+        <line num="64" type="stmt" count="5"/>
+        <line num="65" type="stmt" count="5"/>
+        <line num="69" type="stmt" count="1"/>
+        <line num="76" type="method" name="has" visibility="public" complexity="4" crap="4" count="13"/>
+        <line num="78" type="stmt" count="13"/>
+        <line num="79" type="stmt" count="3"/>
+        <line num="82" type="stmt" count="11"/>
+        <line num="83" type="stmt" count="1"/>
+        <line num="86" type="stmt" count="10"/>
+        <line num="87" type="stmt" count="2"/>
+        <line num="90" type="stmt" count="8"/>
+        <line num="102" type="method" name="bind" visibility="public" complexity="13" crap="13.13" count="11"/>
+        <line num="104" type="stmt" count="11"/>
+        <line num="105" type="stmt" count="1"/>
+        <line num="108" type="stmt" count="11"/>
+        <line num="111" type="stmt" count="11"/>
+        <line num="113" type="stmt" count="1"/>
+        <line num="114" type="stmt" count="1"/>
+        <line num="115" type="stmt" count="1"/>
+        <line num="118" type="stmt" count="10"/>
+        <line num="121" type="stmt" count="10"/>
+        <line num="122" type="stmt" count="8"/>
+        <line num="123" type="stmt" count="6"/>
+        <line num="124" type="stmt" count="6"/>
+        <line num="126" type="stmt" count="2"/>
+        <line num="127" type="stmt" count="2"/>
+        <line num="131" type="stmt" count="3"/>
+        <line num="132" type="stmt" count="1"/>
+        <line num="133" type="stmt" count="1"/>
+        <line num="134" type="stmt" count="1"/>
+        <line num="136" type="stmt" count="0"/>
+        <line num="137" type="stmt" count="0"/>
+        <line num="141" type="stmt" count="2"/>
+        <line num="142" type="stmt" count="2"/>
+        <line num="150" type="method" name="share" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="152" type="stmt" count="2"/>
+        <line num="163" type="method" name="extend" visibility="public" complexity="2" crap="2" count="2"/>
+        <line num="165" type="stmt" count="2"/>
+        <line num="166" type="stmt" count="1"/>
+        <line num="169" type="stmt" count="1"/>
+        <line num="170" type="stmt" count="1"/>
+        <line num="176" type="method" name="delegate" visibility="public" complexity="2" crap="2" count="5"/>
+        <line num="178" type="stmt" count="5"/>
+        <line num="179" type="stmt" count="5"/>
+        <line num="180" type="stmt" count="5"/>
+        <line num="182" type="stmt" count="5"/>
+        <line num="189" type="method" name="hasInDelegate" visibility="private" complexity="3" crap="3" count="8"/>
+        <line num="191" type="stmt" count="8"/>
+        <line num="192" type="stmt" count="5"/>
+        <line num="193" type="stmt" count="5"/>
+        <line num="196" type="stmt" count="6"/>
+        <line num="203" type="method" name="getFromDelegate" visibility="protected" complexity="3" crap="3.07" count="6"/>
+        <line num="205" type="stmt" count="6"/>
+        <line num="206" type="stmt" count="5"/>
+        <line num="207" type="stmt" count="5"/>
+        <line num="209" type="stmt" count="0"/>
+        <line num="211" type="stmt" count="1"/>
+        <line num="218" type="method" name="makeFromDefinition" visibility="private" complexity="8" crap="8.83" count="7"/>
+        <line num="220" type="stmt" count="7"/>
+        <line num="223" type="stmt" count="7"/>
+        <line num="224" type="stmt" count="4"/>
+        <line num="225" type="stmt" count="3"/>
+        <line num="227" type="stmt" count="1"/>
+        <line num="228" type="stmt" count="1"/>
+        <line num="229" type="stmt" count="1"/>
+        <line num="231" type="stmt" count="0"/>
+        <line num="235" type="stmt" count="3"/>
+        <line num="236" type="stmt" count="3"/>
+        <line num="237" type="stmt" count="1"/>
+        <line num="238" type="stmt" count="3"/>
+        <line num="242" type="stmt" count="3"/>
+        <line num="243" type="stmt" count="3"/>
+        <line num="246" type="stmt" count="0"/>
+        <line num="248" type="stmt" count="0"/>
+        <line num="251" type="stmt" count="0"/>
+        <line num="258" type="method" name="normalizeString" visibility="private" complexity="3" crap="3" count="11"/>
+        <line num="260" type="stmt" count="11"/>
+        <line num="268" type="method" name="applyExtenders" visibility="private" complexity="4" crap="6.00" count="10"/>
+        <line num="270" type="stmt" count="10"/>
+        <line num="271" type="stmt" count="0"/>
+        <line num="272" type="stmt" count="0"/>
+        <line num="275" type="stmt" count="10"/>
+        <line num="278" type="method" name="__call" visibility="public" complexity="3" crap="3.14" count="1"/>
+        <line num="279" type="stmt" count="1"/>
+        <line num="280" type="stmt" count="1"/>
+        <line num="281" type="stmt" count="1"/>
+        <line num="284" type="stmt" count="0"/>
+        <metrics loc="285" ncloc="184" classes="1" methods="12" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="88" coveredstatements="78" elements="100" coveredelements="85"/>
+      </file>
+      <file name="/Users/leemason/ecfectus/container/src/ContainerAwareTrait.php">
+        <class name="ContainerAwareTrait" namespace="Ecfectus\Container">
+          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
+        </class>
+        <line num="16" type="method" name="setContainer" visibility="public" complexity="1" crap="1" count="5"/>
+        <line num="18" type="stmt" count="5"/>
+        <line num="19" type="stmt" count="5"/>
+        <line num="25" type="method" name="getContainer" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="27" type="stmt" count="3"/>
+        <metrics loc="29" ncloc="19" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
+      </file>
+      <file name="/Users/leemason/ecfectus/container/src/NotFoundException.php">
+        <class name="NotFoundException" namespace="Ecfectus\Container">
+          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="7" ncloc="7" classes="1" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+      <file name="/Users/leemason/ecfectus/container/src/ReflectionContainer.php">
+        <class name="ReflectionContainer" namespace="Ecfectus\Container">
+          <metrics complexity="15" methods="4" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="20" elements="26" coveredelements="22"/>
+        </class>
+        <line num="13" type="method" name="get" visibility="public" complexity="3" crap="3.02" count="3"/>
+        <line num="15" type="stmt" count="3"/>
+        <line num="16" type="stmt" count="0"/>
+        <line num="19" type="stmt" count="3"/>
+        <line num="20" type="stmt" count="3"/>
+        <line num="21" type="stmt" count="3"/>
+        <line num="22" type="stmt" count="3"/>
+        <line num="25" type="stmt" count="1"/>
+        <line num="26" type="stmt" count="1"/>
+        <line num="36" type="method" name="anonymous function" complexity="3" crap="3" count="1"/>
+        <line num="37" type="stmt" count="1"/>
+        <line num="38" type="stmt" count="1"/>
+        <line num="39" type="stmt" count="1"/>
+        <line num="40" type="stmt" count="1"/>
+        <line num="46" type="stmt" count="1"/>
+        <line num="48" type="stmt" count="1"/>
+        <line num="55" type="method" name="resolveArguments" visibility="private" complexity="5" crap="5.05" count="1"/>
+        <line num="57" type="stmt" count="1"/>
+        <line num="58" type="stmt" count="1"/>
+        <line num="59" type="stmt" count="0"/>
+        <line num="61" type="stmt" count="1"/>
+        <line num="62" type="stmt" count="1"/>
+        <line num="63" type="stmt" count="1"/>
+        <line num="64" type="stmt" count="1"/>
+        <line num="67" type="stmt" count="1"/>
+        <line num="74" type="method" name="has" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="76" type="stmt" count="3"/>
+        <metrics loc="78" ncloc="62" classes="1" methods="4" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="21" elements="27" coveredelements="23"/>
+      </file>
+      <file name="/Users/leemason/ecfectus/container/src/ServiceProviderContainer.php">
+        <class name="ServiceProviderContainer" namespace="Ecfectus\Container">
+          <metrics complexity="13" methods="4" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="26" coveredstatements="16" elements="30" coveredelements="17"/>
+        </class>
+        <line num="18" type="method" name="addServiceProvider" visibility="public" complexity="7" crap="8.14" count="2"/>
+        <line num="20" type="stmt" count="2"/>
+        <line num="21" type="stmt" count="0"/>
+        <line num="23" type="stmt" count="2"/>
+        <line num="26" type="stmt" count="2"/>
+        <line num="28" type="stmt" count="2"/>
+        <line num="29" type="stmt" count="2"/>
+        <line num="32" type="stmt" count="2"/>
+        <line num="33" type="stmt" count="0"/>
+        <line num="36" type="stmt" count="2"/>
+        <line num="37" type="stmt" count="2"/>
+        <line num="38" type="stmt" count="2"/>
+        <line num="40" type="stmt" count="2"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="45" type="stmt" count="0"/>
+        <line num="49" type="method" name="bootServiceProviders" visibility="public" complexity="3" crap="12" count="0"/>
+        <line num="51" type="stmt" count="0"/>
+        <line num="52" type="stmt" count="0"/>
+        <line num="53" type="stmt" count="0"/>
+        <line num="57" type="stmt" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="60" type="method" name="get" visibility="public" complexity="2" crap="2.02" count="2"/>
+        <line num="62" type="stmt" count="2"/>
+        <line num="63" type="stmt" count="0"/>
+        <line num="66" type="stmt" count="2"/>
+        <line num="67" type="stmt" count="2"/>
+        <line num="70" type="stmt" count="2"/>
+        <line num="73" type="stmt" count="2"/>
+        <line num="76" type="method" name="has" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="78" type="stmt" count="2"/>
+        <metrics loc="80" ncloc="76" classes="1" methods="4" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="26" coveredstatements="16" elements="30" coveredelements="17"/>
+      </file>
+    </package>
+    <file name="/Users/leemason/ecfectus/container/src/ContainerAwareInterface.php">
+      <metrics loc="17" ncloc="10" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/Users/leemason/ecfectus/container/src/ContainerInterface.php">
+      <metrics loc="36" ncloc="9" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <package name="Ecfectus\Container\ServiceProvider">
+      <file name="/Users/leemason/ecfectus/container/src/ServiceProvider/AbstractServiceProvider.php">
+        <class name="AbstractServiceProvider" namespace="Ecfectus\Container\ServiceProvider">
+          <metrics complexity="4" methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="3" elements="8" coveredelements="4"/>
+        </class>
+        <line num="17" type="method" name="provides" visibility="public" complexity="2" crap="2.15" count="2"/>
+        <line num="19" type="stmt" count="2"/>
+        <line num="20" type="stmt" count="0"/>
+        <line num="22" type="stmt" count="2"/>
+        <line num="25" type="method" name="bind" visibility="protected" complexity="1" crap="1" count="2"/>
+        <line num="26" type="stmt" count="2"/>
+        <line num="29" type="method" name="share" visibility="protected" complexity="1" crap="2" count="0"/>
+        <line num="30" type="stmt" count="0"/>
+        <metrics loc="32" ncloc="26" classes="1" methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="3" elements="8" coveredelements="4"/>
+      </file>
+    </package>
+    <file name="/Users/leemason/ecfectus/container/src/ServiceProvider/BootableServiceProviderInterface.php">
+      <metrics loc="14" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/Users/leemason/ecfectus/container/src/ServiceProvider/ServiceProviderInterface.php">
+      <metrics loc="25" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <metrics files="10" loc="603" ncloc="412" classes="6" methods="25" coveredmethods="13" conditionals="0" coveredconditionals="0" statements="145" coveredstatements="121" elements="170" coveredelements="134"/>
+  </project>
+</coverage>
